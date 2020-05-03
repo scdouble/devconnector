@@ -5,6 +5,7 @@ import {
   UPDATE_PROFILE,
   LOGOUT,
   GET_REPOS,
+  CLEAR_PROFILE,
 } from '../actions/types';
 
 const initialState = {
@@ -39,6 +40,12 @@ export default function (state = initialState, action) {
         error: payload,
         loading: false,
         profile: null,
+      };
+    case CLEAR_PROFILE:
+      return {
+        ...state,
+        profile: null,
+        repos: [],
       };
     case GET_REPOS:
       return {
