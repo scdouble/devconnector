@@ -5,6 +5,7 @@ import Spinner from '../layout/Spinner';
 import PostItem from '../posts/PostItem';
 import { getPost } from '../../actions/post';
 import PostForm from '../posts/PostForm';
+import CommentFrom from './CommentForm';
 import { Link } from 'react-router-dom';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
@@ -19,6 +20,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
         Go to Posts{' '}
       </Link>
       <PostItem post={post} showActions={false} />
+      <CommentFrom postId={post._id} />
     </Fragment>
   );
 };
