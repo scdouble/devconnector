@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import PostItem from '../posts/PostItem';
 import { getPost } from '../../actions/post';
-import CommentFrom from './CommentForm';
+import CommentForm from './CommentForm';
 import { Link } from 'react-router-dom';
 import CommentItem from './CommentItem';
 
@@ -16,12 +16,12 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Link to='/posts' className='btn'>
-        Go to Posts{' '}
+      <Link to="/posts" className="btn">
+        Go to Posts
       </Link>
       <PostItem post={post} showActions={false} />
-      <CommentFrom postId={post._id} />
-      <div className='comments'>
+      <CommentForm postId={post._id} />
+      <div className="comments">
         {post.comments.map((comment) => (
           <CommentItem key={comment._id} comment={comment} postId={post._id} />
         ))}
@@ -32,10 +32,10 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 
 Post.propTypes = {
   getPost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired
 };
 const mapStateToProps = (state) => ({
-  post: state.post,
+  post: state.post
 });
 
 export default connect(mapStateToProps, { getPost })(Post);
